@@ -1,14 +1,51 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Biblioteca
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content text-center>
+
+  <div class="bg">
+
+    <div class="slides">
+
+      <ion-slides padding paginationType loop spaceBetween="10" slidesPerView="3" style="height: 12vh; width: 455px;">
+        <ion-slide class="slide">
+            <ion-icon ios="ios-home" md="md-home"></ion-icon>
+          <span>Favorito</span>
+        </ion-slide>
+
+        <ion-slide class="slide">
+            <ion-icon ios="ios-home" md="md-home"></ion-icon>
+          <span>Lendo</span>
+        </ion-slide>
+
+        <ion-slide class="slide">
+            <ion-icon ios="ios-home" md="md-home"></ion-icon>
+          <span>Lido</span>
+        </ion-slide>
+
+        <ion-slide class="slide">
+            <ion-icon ios="ios-home" md="md-home"></ion-icon>
+          <span >Não Lido</span>
+        </ion-slide>
+
+        <ion-slide class="slide">
+            <ion-icon ios="ios-home" md="md-home"></ion-icon>
+          <span>Abandonado</span>
+        </ion-slide>
+      </ion-slides>
+
+    </div>
+
+    <ion-fab right bottom>
+      <button ion-fab color="danger" (click)="chamaPaginaCadastro()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-fab>
+
+  </div>
 </ion-content>

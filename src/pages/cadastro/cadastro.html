@@ -1,0 +1,96 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Cadastro</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <form (ngSubmit)="cadastraLivro()" padding>
+
+    <ion-item>
+      <ion-label stacked color="primary">Titulo</ion-label>
+      <ion-input [(ngModel)]="livro.titulo" name="titulo"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked color="primary">Autor(a)</ion-label>
+      <ion-input [(ngModel)]="autor.nome" name="autor"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked color="primary">Editora</ion-label>
+      <ion-input [(ngModel)]="livro.editora" name="editora"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked color="primary"> Data da Publicação</ion-label>
+      <ion-datetime disabled="true" [(ngModel)]="livro.dataPublicacao" name="dataPublicacao" displayFormat="DD/MM/YY"></ion-datetime>
+      <button ion-button clear type="button" class="calendario" item-right (click)="selecionaDataPublicacao()" large>
+        <ion-icon name="calendar"> </ion-icon>
+      </button>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked color="primary">Quantidade de Páginas</ion-label>
+      <ion-input type="number" [(ngModel)]="livro.quantidadePagina" name="quantidadePagina"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked color="primary">Sinopse</ion-label>
+      <ion-textarea [(ngModel)]="livro.sinopse" name="sinopse"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="star" color="bright"></ion-icon>
+      <ion-label stacked color="primary">Favorito</ion-label>
+      <ion-toggle value="foo"></ion-toggle>
+    </ion-item>
+
+    <ion-row radio-group padding>
+      <ion-col>
+        <ion-label stacked color="primary">Tipo</ion-label>
+      </ion-col>
+      <ion-col>
+        <ion-label stacked color="black">Ebook</ion-label>
+        <ion-radio value="homme" padding checked="true"></ion-radio>
+      </ion-col>
+      <ion-col>
+
+        <ion-label stacked color="black" item-center>Físico</ion-label>
+        <ion-radio value="femme" padding></ion-radio>
+
+      </ion-col>
+    </ion-row>
+   <!--  
+    <ion-item >
+        <ion-label>Gênero</ion-label>
+        <ion-select multiple="true" #selectGenero>
+          <ion-option (ionSelect)="showCadastrarGenero()">Novo Gênero</ion-option>
+          <ion-option *ngFor="let genero of listaGenero; let i = index" [selected]="genero.checked" [value]="genero" >{{genero.genero}}
+          </ion-option>
+        </ion-select>
+      </ion-item> -->
+
+    <ion-item>
+      <button ion-button block color="light" round icon-start (click)="showCategoria()">
+        <ion-icon name='list-box'></ion-icon>
+        Categoria
+      </button>
+    </ion-item>
+
+    <ion-item>
+      <button ion-button block color="light" round icon-start (click)="showGenero()">
+        <ion-icon name='list-box'></ion-icon>
+        Gênero
+      </button>
+    </ion-item>
+
+    <button ion-button block type="submit">Cadastrar Livro</button>
+
+  </form>
+
+</ion-content>

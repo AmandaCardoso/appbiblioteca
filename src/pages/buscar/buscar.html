@@ -1,0 +1,39 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Buscar por Título</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <!--  <ion-content> -->
+  <ion-searchbar placeholder="Buscar" [(ngModel)]="tituloSearch" name="tituloSearch" [formControl]="searchControl" (input)="onSearchInput()"></ion-searchbar>
+
+  <div *ngIf="searching" class="spinner-container">
+    <ion-spinner></ion-spinner>
+  </div>
+
+
+  <ion-list>
+    <!--         <ion-item *ngIf="searchingNaoEncontrado && arrPesquisaLivrosApi.length == 0">
+          <ion-label class="error-message">Livro não encontrado.</ion-label>
+        </ion-item> -->
+    <div *ngFor="let pesquisaLivro of arrPesquisaLivrosApi">
+      <ion-item *ngIf="(pesquisaLivro.foto != null && pesquisaLivro.foto.foto)" (click)="preencherCampos(pesquisaLivro)">
+        <ion-thumbnail item-start>
+          <img [src]="pesquisaLivro.foto.foto">
+        </ion-thumbnail>
+        <h2 style="white-space: normal;">{{pesquisaLivro.livro.titulo}}</h2>
+        <p *ngFor="let autor of pesquisaLivro.autores; let i = index">
+          {{autor.nome}}
+          <span *ngIf="i+1 < pesquisaLivro.autores.length">/</span>
+        </p>
+      </ion-item>
+    </div>
+  </ion-list>
+
+  <!-- </ion-content> -->
+</ion-content>
